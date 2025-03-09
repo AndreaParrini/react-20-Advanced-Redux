@@ -5,16 +5,17 @@ import CartItem from './CartItem';
 
 const Cart = (props) => {
 
-  const quantity= useSelector(state=>state.cart.quantity)
+  const items = useSelector(state=>state.cart.items)
 
   return (
     <Card className={classes.cart}>
       <h2>Your Shopping Cart</h2>
       <ul>
-        {quantity >0 && <CartItem
-          item={{ title: 'Test Item', quantity: quantity, price: 6 }}
-        />}
-        {quantity === 0 && <p>No items in a cart</p>}
+        {items.length > 0 && items.map((item) => (<CartItem
+          key={item.id}
+          item={item}
+        />))}
+        {items.length === 0 && <p>No items in a cart</p>}
       </ul>
     </Card>
   );

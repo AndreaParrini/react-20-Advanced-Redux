@@ -5,12 +5,12 @@ import { cartActions } from '../../store/cart-slide';
 import { useDispatch } from 'react-redux';
 
 const ProductItem = (props) => {
-  const { title, price, description } = props;
+  const { id, title, price, description } = props;
 
   const dispatch = useDispatch();
 
   function handleAddItem(){
-    dispatch(cartActions.addItem());
+    dispatch(cartActions.addItem({id, title, price, description}));
   }
 
   return (

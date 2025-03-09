@@ -4,16 +4,16 @@ import { cartActions } from '../../store/cart-slide';
 import { useDispatch} from 'react-redux';
 
 const CartItem = (props) => {
-  const { title, quantity, price } = props.item;
+  const { id, title, quantity, price } = props.item;
 
   const dispatch = useDispatch();
 
   function handleAddItem(){
-    dispatch(cartActions.addItem())
+    dispatch(cartActions.addItem({ id, title, quantity, price }))
   }
 
   function handleRemoveItem(){
-    dispatch(cartActions.removeItem())
+    dispatch(cartActions.removeItem({id}))
   }
 
   const total = quantity*price;
