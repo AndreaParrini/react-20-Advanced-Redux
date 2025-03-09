@@ -36,7 +36,7 @@ const cartSlide = createSlice({
             if(state.items[exsistingItem].quantity > 1){
                 state.items[exsistingItem].quantity--;
             }else{
-                state.items = state.items.filter(item => item.id != id);
+                state.items = state.items.filter(item => item.id !== id);
             }
         },
     }
