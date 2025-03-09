@@ -13,7 +13,9 @@ const cartSlide = createSlice({
             state.quantity++;
         },
         removeItem(state){
-            state.quantity--;
+            if(state.quantity > 0){
+                state.quantity--;
+            }
         },
     }
 })
