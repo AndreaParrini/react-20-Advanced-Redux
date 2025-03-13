@@ -2,7 +2,8 @@ import { createSlice } from "@reduxjs/toolkit";
 
 
 const initialStateUI={
-    isShow:false
+    isShow:false,
+    notification: null
 }
 
 const uiSlide = createSlice({
@@ -11,6 +12,13 @@ const uiSlide = createSlice({
     reducers:{
         toggleShowCart(state){
             state.isShow = !state.isShow
+        },
+        showNotification(state, action){
+            state.notification = {
+                status: action.payload.status,
+                title: action.payload.title,
+                message: action.payload.message
+            }
         }
     }
 })
